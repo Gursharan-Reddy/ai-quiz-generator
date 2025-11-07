@@ -13,14 +13,13 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-# --- THIS IS THE FIX ---
-# We are adding ALL your Vercel URLs to the "allow list".
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://ai-quiz-generator-blond.vercel.app",
-        "https://ai-quiz-generator-ankmwlg69-gursharans-reddys-projects.vercel.app" # From your other screenshot
+        "https.ai-quiz-generator-blond.vercel.app",
+        "https.ai-quiz-generator-ankmwlg69-gursharans-reddys-projects.vercel.app",
+        "https.ai-quiz-generator-j2i5isms-gursharans-reddys-projects.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -114,3 +113,8 @@ def api_get_quiz_details(quiz_id: int, db: Session = Depends(get_db)):
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching quiz details: {str(e)}")
+
+# --- THIS IS THE NEW FUNCTION FOR THE UPTIME BOT ---
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
