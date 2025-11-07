@@ -1,0 +1,56 @@
+.app-container {
+  min-height: 100vh;
+  background-color: #f4f5f7;
+}
+
+.app-header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px 0;
+}
+
+.app-header h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.app-main {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.app-nav {
+  display: flex;
+  border-bottom: 2px solid #dfe1e6;
+  margin-bottom: 24px;
+}
+
+.tab-button {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #5e6c84;
+  margin-bottom: -2px;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-button:hover {
+  color: #0052cc;
+}
+
+.tab-button.active {
+  color: #0052cc;
+  border-bottom-color: #0052cc;
+}
+
+.tab-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
