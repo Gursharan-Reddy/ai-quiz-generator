@@ -74,7 +74,6 @@ def api_get_history(db: Session = Depends(get_db)):
             Quiz.date_generated
         ).order_by(Quiz.date_generated.desc()).all()
         
-        # Convert the list of Row objects into a list of dictionaries
         history = [
             {
                 "id": item.id,
