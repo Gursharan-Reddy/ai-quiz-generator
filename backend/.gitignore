@@ -1,12 +1,4 @@
-Virtual Environment
-
 venv/
-
-Python cache
-
-pycache/
+__pycache__/
 *.pyc
-
-Environment file
-
 .env

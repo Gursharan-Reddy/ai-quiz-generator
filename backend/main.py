@@ -74,6 +74,9 @@ def api_get_history(db: Session = Depends(get_db)):
             Quiz.date_generated
         ).order_by(Quiz.date_generated.desc()).all()
         
+        # --- THIS IS THE FIX ---
+        # We manually convert the list of "Row" objects into 
+        # a simple list of dictionaries that FastAPI can understand.
         history = [
             {
                 "id": item.id,
