@@ -13,9 +13,15 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+# --- THIS IS THE FIX ---
+# We are adding BOTH of your Vercel URLs to the "allow list".
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://ai-quiz-generator-blond.vercel.app"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https.ai-quiz-generator-j2i5isms-gursharans-reddys-projects.vercel.app",
+        "https.ai-quiz-generator-blond.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -74,9 +80,6 @@ def api_get_history(db: Session = Depends(get_db)):
             Quiz.date_generated
         ).order_by(Quiz.date_generated.desc()).all()
         
-        # --- THIS IS THE FIX ---
-        # We manually convert the list of "Row" objects into 
-        # a simple list of dictionaries that FastAPI can understand.
         history = [
             {
                 "id": item.id,
