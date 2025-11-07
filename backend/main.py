@@ -13,13 +13,15 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+# --- THIS IS THE FIX ---
+# We are adding ALL your Vercel URLs to the "allow list".
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https.ai-quiz-generator-blond.vercel.app",
-        "https.ai-quiz-generator-ankmwlg69-gursharans-reddys-projects.vercel.app",
-        "https.ai-quiz-generator-j2i5isms-gursharans-reddys-projects.vercel.app"
+        "https://ai-quiz-generator-blond.vercel.app",
+        "https://ai-quiz-generator-ankmwlg69-gursharans-reddys-projects.vercel.app",
+        "https://ai-quiz-generator-j2i5isms-gursharans-reddys-projects.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
